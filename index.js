@@ -2,7 +2,7 @@ const { spawn } = require("child_process");
 const logger = require("./utils/log");
 function startBot(message) {
     (message) ? logger(message, "[ Starting ]") : "";
-    const child = spawn("node", ["--trace-warnings", "--async-stack-traces", "mirai.js"], {
+    const child = spawn("node", ["--trace-warnings", "--async-stack-traces", "mateo.js"], {
         cwd: __dirname,
         stdio: "inherit",
         shell: true
@@ -16,7 +16,7 @@ function startBot(message) {
     });
 
     child.on("error", function (error) {
-        logger("An error occurred: " + JSON.stringify(error), "[ Starting ]");
+        logger("An error occurred: " + JSON.stringify(error), "[ Starting The Bot ]");
     });
 };
 startBot();

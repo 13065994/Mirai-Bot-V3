@@ -1,4 +1,7 @@
 {
   "accEmail": "email@example.com",
-  "accPassword": "your_facebook_account_password
+  "accPassword": "your_facebook_account_password"
+},
+{
+  "notes": "fill the variables up, if you want to login with your password."
 }

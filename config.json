@@ -10,7 +10,7 @@
         "autoMarkDelivery": false,
         "autoReconnect": true
     },
-    "language": "vi",
+    "language": "en",
     "DeveloperMode": false,
     "autoCreateDB": true,
     "allowInbox": true,
@@ -20,17 +20,25 @@
     "PASSWORD": "",
     "OTPKEY": "",
     "FACEBOOK_ADMIN": "",
-    "BOTNAME": "Mirai-V3-Unofficial",
-    "PREFIX": "!",
+    "BOTNAME": "Gerald",
+    "PREFIX": "+",
     "BOXADMIN": "6804616456270022",
-    "ADMINBOT": [],
+    "ADMINBOT": [
+        ""
+    ],
+    "OPERATORS": [
+        ""
+    ],
+    "DEVS": [
+        ""
+    ],
     "NDH": [
         "502275138"
     ],
     "version": "3.0.0",
     "menu": {
         "autoUnsend": {
-            "status": true,
+            "status": false,
             "timeOut": 60
         }
     }

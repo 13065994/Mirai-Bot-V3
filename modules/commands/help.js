@@ -25,7 +25,7 @@ this.run = async function({ api, event, args }) {
 
     if (type == "all") {
         for (const cmd of cmds.values()) {
-            msg += `${++i}. ${cmd.config.name}\n→ Mô tả: ${cmd.config.description}\n────────────────\n`;
+            msg += `${++i}. ${cmd.config.name}\n→ description: ${cmd.config.description}\n────────────────\n`;
         }
         return api.sendMessage(msg, tid, mid);
     }
@@ -61,9 +61,9 @@ this.run = async function({ api, event, args }) {
         CmdCategory();
         array.sort(S("nameModule"));
         for (const cmd of array) {
-            msg += `│\n│ ${cmd.cmdCategory.toUpperCase()}\n├────────⭔\n│ Tổng lệnh: ${cmd.nameModule.length} lệnh\n│ ${cmd.nameModule.join(", ")}\n├────────⭔\n`;
+            msg += `│\n│ ${cmd.cmdCategory.toUpperCase()}\n├────────⭔\n│ Total: ${cmd.nameModule.length} commands\n│ ${cmd.nameModule.join(", ")}\n├────────⭔\n`;
         }
-        msg += `📝 Tổng số lệnh: ${cmds.size} lệnh\n👤 Tổng số admin bot: ${admin.length}\n→ Tên Bot: ${NameBot}\n🔰 Phiên bản: ${version}\n→ Admin: Phạm Minh Đồng\n📎 Link: ${global.config.FACEBOOK_ADMIN}\n${prefix}help + tên lệnh để xem chi tiết\n${prefix}help + all để xem tất cả lệnh`;
+        msg += `📝 Total Cmds: ${cmds.size}\n👤 Total admins: ${admin.length}\n→ Bot Name: ${NameBot}\n🔰 Bot Version: ${version}\n→ Owner ⁠ツ: Gerald Max\n📎 Link: ${global.config.FACEBOOK_ADMIN}\n${prefix}help + cmd\n${prefix}help + all.`;
         return api.sendMessage(`╭─────────────⭓\n${msg}`, tid);
     }
 

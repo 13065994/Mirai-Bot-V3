@@ -2,7 +2,7 @@ const { readdirSync, readFileSync, writeFileSync, existsSync, unlinkSync, rm } =
 const { join, resolve } = require("path");
 const { execSync } = require('child_process');
 const logger = require("./utils/log.js");
-const login = require("./fb-chat-api");
+const login = require("");
 const axios = require("axios");
 const fs = require('fs-extra');
 if (!fs.existsSync('./utils/data')) {
@@ -17,7 +17,7 @@ global.client = {
   handleReply: [],
   mainPath: process.cwd(),
   configPath: "",
-  getTime: option => moment.tz("Asia/Ho_Chi_minh").format({ seconds: "ss", minutes: "mm", hours: "HH", date: "DD", month: "MM", year: "YYYY", fullHour: "HH:mm:ss", fullYear: "DD/MM/YYYY", fullTime: "HH:mm:ss DD/MM/YYYY" }[option])
+  getTime: option => moment.tz("Africa/Lagos").format({ seconds: "ss", minutes: "mm", hours: "HH", date: "DD", month: "MM", year: "YYYY", fullHour: "HH:mm:ss", fullYear: "DD/MM/YYYY", fullTime: "HH:mm:ss DD/MM/YYYY" }[option])
 };
 global.data = new Object({
     threadInfo: new Map(),
@@ -59,7 +59,7 @@ global.getText = function (...args) {
     return text;
 }
 function onBot({ models }) {
-    login({ appState: global.utils.parseCookies(fs.readFileSync('./cookie.txt', 'utf8'))}, async (loginError, api) => {
+    login({ appState: global.utils.parseCookies(fs.readFileSync('cookie.txt', 'utf8'))}, async (loginError, api) => {
         if (loginError) return console.log(loginError);
         api.setOptions(global.config.FCAOption);
         writeFileSync('./utils/data/fbstate.json', JSON.stringify(api.getAppState(), null, 2));

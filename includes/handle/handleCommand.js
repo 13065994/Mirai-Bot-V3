@@ -3,7 +3,7 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
     const moment = require("moment-timezone");
     return async function ({ event }) {
     const dateNow = Date.now()
-    const time = moment.tz("Asia/Ho_Chi_minh").format("HH:MM:ss DD/MM/YYYY");
+    const time = moment.tz("Africa/Lagos").format("HH:MM:ss DD/MM/YYYY");
     const { allowInbox, PREFIX, ADMINBOT, NDH, DeveloperMode, adminOnly } = global.config;
     const { userBanned, threadBanned, threadInfo, threadData, commandBanned } = global.data;
     const { commands, cooldowns } = global.client;
@@ -61,8 +61,8 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
             for (const cmd of commandValues) allCommandName.push(cmd)
             const checker = stringSimilarity.findBestMatch(commandName, allCommandName);
             if (checker.bestMatch.rating >= 0.5) command = client.commands.get(checker.bestMatch.target);
-            else return api.sendMessage(`❎ Lệnh không tồn tại, lệnh gần giống là: ${checker.bestMatch.target}`, threadID, messageID);
-        }  
+            else return api.sendMessage(`❎ Command does not exist, similar command is: ${checker.bestMatch.target}`, threadID, messageID);
+       }
         if (commandBanned.get(threadID) || commandBanned.get(senderID)) {
             if (!ADMINBOT.includes(senderID)) {
                 const banThreads = commandBanned.get(threadID) || [],
@@ -100,13 +100,13 @@ module.exports = function ({ api, models, Users, Threads, Currencies }) {
          else if (NDH.includes(senderID.toString())) permssion = 3;
          else if (find) permssion = 1;
          const rolePermissions = {
-                   1: "Quản Trị Viên",
+                   1: "Administrator",
                    2: "ADMIN BOT",
-                   3: "Người Hỗ Trợ"
+                   3: "Supporter"
          };
          const requiredPermission = rolePermissions[command.config.hasPermssion] || "";
          if (command.config.hasPermssion > permssion) {
-                 return api.sendMessage(`📌 Lệnh ${command.config.name} có quyền hạn là ${requiredPermission}`, threadID, async (err, info) => {
+                 return api.sendMessage(`📌 Command ${command.config.name} has the authority to ${requiredPermission}`, threadID, async (err, info) => {
                  await new Promise(resolve => setTimeout(resolve, 15 * 1000));
                  return api.unsendMessage(info.messageID);
             }, messageID);

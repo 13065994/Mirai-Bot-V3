@@ -2,7 +2,7 @@
     "name": "Mirai-Bot",
     "version": "3.0.0",
     "description": "A simple Facebook Messenger Bot made by me(CatalizCS) and my brother SpermLord.",
-    "main": "mirai.js",
+    "main": "mateo.js",
     "scripts": {
         "start": "node index"
     },
@@ -12,7 +12,7 @@
     },
     "author": "DongDev",
     "dependencies": {
-        "@dongdev/fca-unofficial": "^0.0.4",
+        "@NethWs3Dev/ws3-fca": "^1.0.4",
         "axios": "^1.7.7",
         "bluebird": "^2.11.0",
         "body-parser": "^1.20.3",

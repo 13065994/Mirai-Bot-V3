@@ -2,7 +2,7 @@ const { readdirSync, readFileSync, writeFileSync, existsSync, unlinkSync, rm } =
 const { join, resolve } = require("path");
 const { execSync } = require('child_process');
 const logger = require("./utils/log.js");
-const login = require("");
+const login = require("@NethWs3Dev/ws3-fca");
 const axios = require("axios");
 const fs = require('fs-extra');
 if (!fs.existsSync('./utils/data')) {
